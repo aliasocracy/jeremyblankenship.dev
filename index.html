@@ -16,53 +16,90 @@
                 <nav aria-label="Primary">
                     <a href="/" class="brand active">Jeremy Blankenship</a>
                     <a href="/writing/">Writing</a>
+                    <a href="https://github.com/aliasocracy" class="nav-github">GitHub</a>
                 </nav>
             </div>
         </header>
 
         <main id="main">
             <section class="hero" aria-labelledby="intro-heading">
-                <div class="hero-visual" aria-hidden="true">
-                    <svg class="hero-mesh" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <div class="hero-backdrop" aria-hidden="true">
+                    <div class="hero-glow"></div>
+                    <svg class="hero-scene" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.35"/>
+                            <pattern id="hero-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+                                <path d="M 48 0 L 0 0 0 48" fill="none" stroke="currentColor" stroke-width="0.75"/>
                             </pattern>
-                            <radialGradient id="glow" cx="50%" cy="0%" r="75%">
-                                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.22"/>
-                                <stop offset="55%" stop-color="var(--accent)" stop-opacity="0"/>
-                            </radialGradient>
+                            <linearGradient id="fade-up" x1="0" y1="1" x2="0" y2="0">
+                                <stop offset="0%" stop-color="var(--bg)" stop-opacity="1"/>
+                                <stop offset="45%" stop-color="var(--bg)" stop-opacity="0.6"/>
+                                <stop offset="100%" stop-color="var(--bg)" stop-opacity="0"/>
+                            </linearGradient>
                         </defs>
-                        <rect width="100%" height="100%" fill="url(#grid)"/>
-                        <rect width="100%" height="100%" fill="url(#glow)"/>
-                        <g class="hero-links" stroke="currentColor" stroke-width="1" fill="none" opacity="0.2">
-                            <path d="M120 280 L280 200 L420 240 L620 160 L720 220"/>
-                            <circle cx="280" cy="200" r="4" fill="currentColor"/>
-                            <circle cx="420" cy="240" r="4" fill="currentColor"/>
-                            <circle cx="620" cy="160" r="4" fill="currentColor"/>
+                        <rect width="100%" height="100%" fill="url(#hero-grid)" opacity="0.45"/>
+                        <g class="hero-racks" fill="none" stroke="currentColor" stroke-width="1.25" opacity="0.48">
+                            <rect x="180" y="320" width="72" height="220" rx="4"/>
+                            <rect x="268" y="280" width="72" height="260" rx="4"/>
+                            <rect x="356" y="300" width="72" height="240" rx="4"/>
+                            <rect x="1012" y="310" width="72" height="230" rx="4"/>
+                            <rect x="1100" y="270" width="72" height="270" rx="4"/>
+                            <rect x="1188" y="295" width="72" height="245" rx="4"/>
+                            <path d="M304 400h40M304 440h40M304 480h40M1136 390h40M1136 430h40"/>
                         </g>
+                        <g class="hero-topology" fill="none" stroke="currentColor" stroke-width="1.75" opacity="0.62">
+                            <path d="M428 360 C 620 280, 760 420, 920 340 S 1120 300, 1280 380"/>
+                            <path d="M428 480 C 600 520, 780 440, 960 500 S 1140 560, 1310 480" stroke-dasharray="6 8"/>
+                            <circle cx="428" cy="360" r="5" fill="currentColor"/>
+                            <circle cx="920" cy="340" r="5" fill="currentColor"/>
+                            <circle cx="1280" cy="380" r="5" fill="currentColor"/>
+                            <circle cx="428" cy="480" r="4" fill="currentColor"/>
+                            <circle cx="960" cy="500" r="4" fill="currentColor"/>
+                        </g>
+                        <rect width="100%" height="100%" fill="url(#fade-up)"/>
                     </svg>
                 </div>
-                <div class="container hero-content reveal">
+
+                <div class="container hero-inner reveal">
                     <p class="hero-eyebrow"><span class="mono">rack-scale · datacenter · agents</span></p>
                     <h1 id="intro-heading">Jeremy Blankenship</h1>
                     <p class="hero-tagline">Senior Principal Engineer and XE Domain Engineer at Dell Technologies. I work on rack-scale NVIDIA AI systems in production datacenters, and on the side I run a homelab, build small business websites, and ship open-source tools around LLMs and MCP.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#projects">View projects</a>
+                        <a class="btn btn-secondary" href="https://github.com/aliasocracy">GitHub</a>
+                    </div>
                 </div>
             </section>
 
             <div class="container content-flow">
                 <section class="content-section reveal" aria-labelledby="work-heading">
                     <h2 id="work-heading" class="section-title">What I work on</h2>
-                    <div class="prose">
-                        <p>Since August 2025, most of my time goes to NVIDIA GB200 and GB300 NVL72 rack-scale platforms: troubleshooting NVSwitch switch trays, power shelves, compute trays, and capacitance shelves.</p>
-                        <p>Before that focus, I spent years on AI server infrastructure—systems like the XE9680, NVIDIA GPU clusters, InfiniBand fabrics, and datacenter bring-up at large AI customer sites (customer names stay off this site).</p>
-                        <p>Outside work I keep a Proxmox homelab, build sites for local businesses, and maintain Hermes Agent plugins and MCP servers.</p>
-                    </div>
+                    <ul class="focus-grid">
+                        <li class="focus-card">
+                            <span class="focus-icon" aria-hidden="true">
+                                <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="8" width="20" height="18" rx="2"/><path d="M10 14h12M10 18h12M10 22h8"/><path d="M16 4v4"/></svg>
+                            </span>
+                            <h3>NVL72 rack-scale</h3>
+                            <p>Since August 2025, most of my time goes to NVIDIA GB200 and GB300 NVL72 platforms: troubleshooting NVSwitch switch trays, power shelves, compute trays, and capacitance shelves.</p>
+                        </li>
+                        <li class="focus-card">
+                            <span class="focus-icon" aria-hidden="true">
+                                <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="10" height="14" rx="1"/><rect x="18" y="6" width="10" height="18" rx="1"/><path d="M14 17h4"/></svg>
+                            </span>
+                            <h3>AI infrastructure</h3>
+                            <p>Years on AI server infrastructure—systems like the XE9680, NVIDIA GPU clusters, InfiniBand fabrics, and datacenter bring-up at large AI customer sites.</p>
+                        </li>
+                        <li class="focus-card">
+                            <span class="focus-icon" aria-hidden="true">
+                                <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 22V12l8-6 8 6v10"/><path d="M12 22v-6h8v6"/><circle cx="22" cy="12" r="2" fill="currentColor" stroke="none"/></svg>
+                            </span>
+                            <h3>Homelab &amp; tooling</h3>
+                            <p>Outside work I keep a Proxmox homelab, build sites for local businesses, and maintain Hermes Agent plugins and MCP servers.</p>
+                        </li>
+                    </ul>
                 </section>
 
-                <section class="content-section reveal" aria-labelledby="projects-heading">
+                <section id="projects" class="content-section reveal" aria-labelledby="projects-heading">
                     <h2 id="projects-heading" class="section-title">Selected projects</h2>
-                    <p class="section-note">Descriptions from each repository’s README or GitHub summary.</p>
 
                     <ul class="project-grid">
                         <li>
@@ -147,46 +184,69 @@
                 <section class="content-section reveal" aria-labelledby="experience-heading">
                     <h2 id="experience-heading" class="section-title">Experience &amp; recognition</h2>
 
-                    <ol class="timeline">
-                        <li class="timeline-entry">
-                            <div class="timeline-node" aria-hidden="true"></div>
-                            <div class="timeline-body">
-                                <h3 class="timeline-org">Dell Technologies</h3>
-                                <p class="timeline-role"><span class="mono">Senior Principal Engineer, XE Domain Engineer</span> · March 2026–present</p>
-                                <p class="timeline-role"><span class="mono">Principal Engineer</span> · July 2024–March 2026</p>
-                                <p class="timeline-detail">With Dell since about 2009—roughly seventeen years in enterprise server and AI infrastructure roles.</p>
+                    <div class="experience-layout">
+                        <div class="timeline-panel">
+                            <ol class="timeline">
+                                <li class="timeline-entry">
+                                    <div class="timeline-node" aria-hidden="true"><span></span></div>
+                                    <div class="timeline-body">
+                                        <h3 class="timeline-org">Dell Technologies</h3>
+                                        <div class="role-block">
+                                            <p class="timeline-role"><span class="mono">Senior Principal Engineer, XE Domain Engineer</span></p>
+                                            <p class="timeline-dates">March 2026–present</p>
+                                        </div>
+                                        <div class="role-block">
+                                            <p class="timeline-role"><span class="mono">Principal Engineer</span></p>
+                                            <p class="timeline-dates">July 2024–March 2026</p>
+                                        </div>
+                                        <p class="timeline-detail">With Dell since about 2009—roughly seventeen years in enterprise server and AI infrastructure roles.</p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="recognition-panel">
+                            <h3 class="panel-label">Awards</h3>
+                            <div class="badge-row" aria-label="Awards">
+                                <span class="badge badge-award">
+                                    <span class="badge-icon" aria-hidden="true">★</span>
+                                    <span class="badge-text">President’s Award · Game Changer <span class="badge-date">Dec 2024</span></span>
+                                </span>
+                                <span class="badge badge-award">
+                                    <span class="badge-icon" aria-hidden="true">★</span>
+                                    <span class="badge-text">Game Changer <span class="badge-date">Oct 2025</span></span>
+                                </span>
                             </div>
-                        </li>
-                    </ol>
-
-                    <div class="badge-row" aria-label="Awards">
-                        <span class="badge badge-award">President’s Award · Game Changer <span class="badge-date">Dec 2024</span></span>
-                        <span class="badge badge-award">Game Changer <span class="badge-date">Oct 2025</span></span>
+                            <h3 class="panel-label">Credentials</h3>
+                            <ul class="cred-chips">
+                                <li><span class="chip-label">CCNA</span></li>
+                                <li><span class="chip-label">CCDA</span></li>
+                                <li><span class="chip-label">CS coursework</span> Pennsylvania College of Technology (2007–2009)</li>
+                            </ul>
+                        </div>
                     </div>
-
-                    <ul class="cred-chips">
-                        <li>CCNA</li>
-                        <li>CCDA</li>
-                        <li>CS coursework · Pennsylvania College of Technology (2007–2009)</li>
-                    </ul>
                 </section>
 
                 <section class="content-section reveal" aria-labelledby="writing-heading">
                     <h2 id="writing-heading" class="section-title">Writing</h2>
-                    <p class="prose">Notes on agent reliability, production discipline, and infrastructure—<a href="/writing/">see all posts</a>.</p>
-                </section>
-
-                <section class="content-section reveal" aria-labelledby="contact-heading">
-                    <h2 id="contact-heading" class="section-title">Contact</h2>
-                    <p class="prose"><a class="contact-github" href="https://github.com/alias8818">github.com/alias8818</a></p>
-                    <p class="fine-print">Personal site. Views and side projects are my own, not my employer’s.</p>
+                    <article class="writing-card">
+                        <p class="writing-meta">May 2026</p>
+                        <h3 class="writing-title"><a href="/writing/agent-run-not-done.html">An Agent Run Is Not Done When the Model Stops Talking</a></h3>
+                        <p class="writing-excerpt">The gap between “the model stopped generating” and “the task is complete” is where most real-world agent failures live.</p>
+                        <a class="writing-read" href="/writing/agent-run-not-done.html">Read article</a>
+                    </article>
                 </section>
             </div>
         </main>
 
         <footer class="site-footer">
-            <div class="container">
-                <p>Jeremy Blankenship</p>
+            <div class="container footer-inner">
+                <div class="footer-top">
+                    <p class="footer-name">Jeremy Blankenship</p>
+                    <a class="footer-github" href="https://github.com/aliasocracy">github.com/aliasocracy</a>
+                </div>
+                <p class="footer-note">Hand-built static HTML &amp; CSS · 2026</p>
+                <p class="footer-disclaimer">Personal site. Views and side projects are my own, not my employer’s.</p>
             </div>
         </footer>
     </div>
