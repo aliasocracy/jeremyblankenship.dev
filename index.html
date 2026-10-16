@@ -6,94 +6,188 @@
     <title>Jeremy Blankenship</title>
     <meta name="description" content="Senior Principal Engineer at Dell Technologies. Rack-scale AI infrastructure, homelab systems, and open-source LLM tooling.">
     <link rel="stylesheet" href="styles.css">
+    <script src="reveal.js" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="container">
+    <div class="page-wrap">
         <header class="site-header">
-            <nav aria-label="Primary">
-                <a href="/" class="active">Jeremy Blankenship</a>
-                <a href="/writing/">Writing</a>
-            </nav>
+            <div class="container header-inner">
+                <nav aria-label="Primary">
+                    <a href="/" class="brand active">Jeremy Blankenship</a>
+                    <a href="/writing/">Writing</a>
+                </nav>
+            </div>
         </header>
 
         <main id="main">
-            <section class="intro" aria-labelledby="intro-heading">
-                <h1 id="intro-heading">Jeremy Blankenship</h1>
-                <p class="lede">Senior Principal Engineer and XE Domain Engineer at Dell Technologies. I work on rack-scale NVIDIA AI systems in production datacenters, and on the side I run a homelab, build small business websites, and ship open-source tools around LLMs and MCP.</p>
-            </section>
-
-            <section aria-labelledby="work-heading">
-                <h2 id="work-heading">What I work on</h2>
-                <div class="prose">
-                    <p>Since August 2025, most of my time goes to NVIDIA GB200 and GB300 NVL72 rack-scale platforms: troubleshooting NVSwitch switch trays, power shelves, compute trays, and capacitance shelves.</p>
-                    <p>Before that focus, I spent years on AI server infrastructure—systems like the XE9680, NVIDIA GPU clusters, InfiniBand fabrics, and datacenter bring-up at large AI customer sites (customer names stay off this site).</p>
-                    <p>Outside work I keep a Proxmox homelab, build sites for local businesses, and maintain Hermes Agent plugins and MCP servers.</p>
+            <section class="hero" aria-labelledby="intro-heading">
+                <div class="hero-visual" aria-hidden="true">
+                    <svg class="hero-mesh" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.35"/>
+                            </pattern>
+                            <radialGradient id="glow" cx="50%" cy="0%" r="75%">
+                                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.22"/>
+                                <stop offset="55%" stop-color="var(--accent)" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)"/>
+                        <rect width="100%" height="100%" fill="url(#glow)"/>
+                        <g class="hero-links" stroke="currentColor" stroke-width="1" fill="none" opacity="0.2">
+                            <path d="M120 280 L280 200 L420 240 L620 160 L720 220"/>
+                            <circle cx="280" cy="200" r="4" fill="currentColor"/>
+                            <circle cx="420" cy="240" r="4" fill="currentColor"/>
+                            <circle cx="620" cy="160" r="4" fill="currentColor"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="container hero-content reveal">
+                    <p class="hero-eyebrow"><span class="mono">rack-scale · datacenter · agents</span></p>
+                    <h1 id="intro-heading">Jeremy Blankenship</h1>
+                    <p class="hero-tagline">Senior Principal Engineer and XE Domain Engineer at Dell Technologies. I work on rack-scale NVIDIA AI systems in production datacenters, and on the side I run a homelab, build small business websites, and ship open-source tools around LLMs and MCP.</p>
                 </div>
             </section>
 
-            <section aria-labelledby="projects-heading">
-                <h2 id="projects-heading">Selected projects</h2>
-                <p class="section-note">Descriptions from each repository’s README or GitHub summary.</p>
-
-                <ul class="project-list">
-                    <li class="card">
-                        <h3><a href="https://github.com/aliasocracy/hermes-tool-slimmer">hermes-tool-slimmer</a></h3>
-                        <p>Hermes Agent plugin that trims tool schemas sent with each model request—keyword-ranked selection, optional experimental modes, and a dashboard for savings. Fails open to the full tool list when selection errors.</p>
-                    </li>
-                    <li class="card">
-                        <h3><a href="https://github.com/aliasocracy/CouncilRouter">CouncilRouter</a></h3>
-                        <p>Multi-model AI consensus proxy with deliberation rounds, code-aware synthesis, and a Devil’s Advocate module that challenges consensus.</p>
-                    </li>
-                    <li class="card">
-                        <h3><a href="https://github.com/aliasocracy/hermes-memory-mcp">hermes-memory-mcp</a></h3>
-                        <p>Stdio MCP server exposing Hermes Agent persistent memory files and local session search to MCP clients (Hermes, Cursor, Claude, and others).</p>
-                    </li>
-                    <li class="card">
-                        <h3><a href="https://github.com/aliasocracy/hermes-webhook-router">hermes-webhook-router</a></h3>
-                        <p>Pre-router that filters and transforms webhook payloads before they trigger Hermes Agent runs, so noisy SaaS events do not burn tokens on every delivery.</p>
-                    </li>
-                    <li class="card">
-                        <h3><a href="https://github.com/aliasocracy/hermes-threshold">hermes-threshold</a></h3>
-                        <p>FastAPI service for proactive Hermes wake cycles: deterministic decisions to sleep, reflect, draft, notify, or request approval, with SQLite-backed state.</p>
-                    </li>
-                </ul>
-            </section>
-
-            <section aria-labelledby="experience-heading">
-                <h2 id="experience-heading">Experience &amp; recognition</h2>
-                <dl class="timeline">
-                    <div>
-                        <dt>Dell Technologies</dt>
-                        <dd>
-                            <p><strong>Senior Principal Engineer, XE Domain Engineer</strong> (March 2026–present)</p>
-                            <p><strong>Principal Engineer</strong> (July 2024–March 2026)</p>
-                            <p>With Dell since about 2009—roughly seventeen years in enterprise server and AI infrastructure roles.</p>
-                        </dd>
+            <div class="container content-flow">
+                <section class="content-section reveal" aria-labelledby="work-heading">
+                    <h2 id="work-heading" class="section-title">What I work on</h2>
+                    <div class="prose">
+                        <p>Since August 2025, most of my time goes to NVIDIA GB200 and GB300 NVL72 rack-scale platforms: troubleshooting NVSwitch switch trays, power shelves, compute trays, and capacitance shelves.</p>
+                        <p>Before that focus, I spent years on AI server infrastructure—systems like the XE9680, NVIDIA GPU clusters, InfiniBand fabrics, and datacenter bring-up at large AI customer sites (customer names stay off this site).</p>
+                        <p>Outside work I keep a Proxmox homelab, build sites for local businesses, and maintain Hermes Agent plugins and MCP servers.</p>
                     </div>
-                </dl>
-                <ul class="plain-list">
-                    <li>Dell President’s Award / Game Changer (December 2024)</li>
-                    <li>Game Changer recognition (October 2025)</li>
-                    <li>CCNA and CCDA certifications</li>
-                    <li>Computer Science coursework at Pennsylvania College of Technology (2007–2009)</li>
-                </ul>
-            </section>
+                </section>
 
-            <section aria-labelledby="writing-heading">
-                <h2 id="writing-heading">Writing</h2>
-                <p class="prose">Notes on agent reliability, production discipline, and infrastructure—<a href="/writing/">see all posts</a>.</p>
-            </section>
+                <section class="content-section reveal" aria-labelledby="projects-heading">
+                    <h2 id="projects-heading" class="section-title">Selected projects</h2>
+                    <p class="section-note">Descriptions from each repository’s README or GitHub summary.</p>
 
-            <section aria-labelledby="contact-heading">
-                <h2 id="contact-heading">Contact</h2>
-                <p class="prose"><a href="https://github.com/alias8818">GitHub</a></p>
-                <p class="fine-print">Personal site. Views and side projects are my own, not my employer’s.</p>
-            </section>
+                    <ul class="project-grid">
+                        <li>
+                            <article class="project-card">
+                                <div class="project-card-top">
+                                    <span class="project-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 12h10M4 16h14"/><circle cx="19" cy="16" r="2" fill="var(--accent)" stroke="none"/></svg>
+                                    </span>
+                                    <h3><a href="https://github.com/aliasocracy/hermes-tool-slimmer">hermes-tool-slimmer</a></h3>
+                                </div>
+                                <ul class="tags" aria-label="Technologies">
+                                    <li>Python</li>
+                                    <li>Hermes</li>
+                                </ul>
+                                <p>Hermes Agent plugin that trims tool schemas sent with each model request—keyword-ranked selection, optional experimental modes, and a dashboard for savings. Fails open to the full tool list when selection errors.</p>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="project-card">
+                                <div class="project-card-top">
+                                    <span class="project-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 11l7-4M8.5 13l7 4"/></svg>
+                                    </span>
+                                    <h3><a href="https://github.com/aliasocracy/CouncilRouter">CouncilRouter</a></h3>
+                                </div>
+                                <ul class="tags" aria-label="Technologies">
+                                    <li>TypeScript</li>
+                                    <li>Node</li>
+                                </ul>
+                                <p>Multi-model AI consensus proxy with deliberation rounds, code-aware synthesis, and a Devil’s Advocate module that challenges consensus.</p>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="project-card">
+                                <div class="project-card-top">
+                                    <span class="project-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h2M7 12h6M7 16h4"/></svg>
+                                    </span>
+                                    <h3><a href="https://github.com/aliasocracy/hermes-memory-mcp">hermes-memory-mcp</a></h3>
+                                </div>
+                                <ul class="tags" aria-label="Technologies">
+                                    <li>Python</li>
+                                    <li>MCP</li>
+                                </ul>
+                                <p>Stdio MCP server exposing Hermes Agent persistent memory files and local session search to MCP clients (Hermes, Cursor, Claude, and others).</p>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="project-card">
+                                <div class="project-card-top">
+                                    <span class="project-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h6l2-6 4 12 2-6h6"/><circle cx="4" cy="12" r="1.5" fill="var(--accent)" stroke="none"/></svg>
+                                    </span>
+                                    <h3><a href="https://github.com/aliasocracy/hermes-webhook-router">hermes-webhook-router</a></h3>
+                                </div>
+                                <ul class="tags" aria-label="Technologies">
+                                    <li>Python</li>
+                                    <li>FastAPI</li>
+                                    <li>Hermes</li>
+                                </ul>
+                                <p>Pre-router that filters and transforms webhook payloads before they trigger Hermes Agent runs, so noisy SaaS events do not burn tokens on every delivery.</p>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="project-card">
+                                <div class="project-card-top">
+                                    <span class="project-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v4M12 17v4M5 12H3M21 12h-2"/><circle cx="12" cy="12" r="5"/><path d="M12 9v3l2 1"/></svg>
+                                    </span>
+                                    <h3><a href="https://github.com/aliasocracy/hermes-threshold">hermes-threshold</a></h3>
+                                </div>
+                                <ul class="tags" aria-label="Technologies">
+                                    <li>Python</li>
+                                    <li>FastAPI</li>
+                                </ul>
+                                <p>FastAPI service for proactive Hermes wake cycles: deterministic decisions to sleep, reflect, draft, notify, or request approval, with SQLite-backed state.</p>
+                            </article>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="content-section reveal" aria-labelledby="experience-heading">
+                    <h2 id="experience-heading" class="section-title">Experience &amp; recognition</h2>
+
+                    <ol class="timeline">
+                        <li class="timeline-entry">
+                            <div class="timeline-node" aria-hidden="true"></div>
+                            <div class="timeline-body">
+                                <h3 class="timeline-org">Dell Technologies</h3>
+                                <p class="timeline-role"><span class="mono">Senior Principal Engineer, XE Domain Engineer</span> · March 2026–present</p>
+                                <p class="timeline-role"><span class="mono">Principal Engineer</span> · July 2024–March 2026</p>
+                                <p class="timeline-detail">With Dell since about 2009—roughly seventeen years in enterprise server and AI infrastructure roles.</p>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <div class="badge-row" aria-label="Awards">
+                        <span class="badge badge-award">President’s Award · Game Changer <span class="badge-date">Dec 2024</span></span>
+                        <span class="badge badge-award">Game Changer <span class="badge-date">Oct 2025</span></span>
+                    </div>
+
+                    <ul class="cred-chips">
+                        <li>CCNA</li>
+                        <li>CCDA</li>
+                        <li>CS coursework · Pennsylvania College of Technology (2007–2009)</li>
+                    </ul>
+                </section>
+
+                <section class="content-section reveal" aria-labelledby="writing-heading">
+                    <h2 id="writing-heading" class="section-title">Writing</h2>
+                    <p class="prose">Notes on agent reliability, production discipline, and infrastructure—<a href="/writing/">see all posts</a>.</p>
+                </section>
+
+                <section class="content-section reveal" aria-labelledby="contact-heading">
+                    <h2 id="contact-heading" class="section-title">Contact</h2>
+                    <p class="prose"><a class="contact-github" href="https://github.com/alias8818">github.com/alias8818</a></p>
+                    <p class="fine-print">Personal site. Views and side projects are my own, not my employer’s.</p>
+                </section>
+            </div>
         </main>
 
-        <footer>
-            <p>Jeremy Blankenship</p>
+        <footer class="site-footer">
+            <div class="container">
+                <p>Jeremy Blankenship</p>
+            </div>
         </footer>
     </div>
 </body>
