@@ -1,0 +1,122 @@
+:root {
+  --bg: #fbfaf7;
+  --text: #1d1d1b;
+  --dim: #6b6a65;
+  --rule: #e3e0d8;
+  --accent: #b4451f;
+  --code-bg: #f1eee7;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131312;
+    --text: #e7e5df;
+    --dim: #9a978f;
+    --rule: #2b2a27;
+    --accent: #ec8358;
+    --code-bg: #1d1c1a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 var(--sans);
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.25rem 3rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--accent); }
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.35rem;
+}
+
+.sub {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--dim);
+  margin: 0 0 2.5rem;
+}
+
+h2 {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  margin: 2.75rem 0 0.75rem;
+}
+h2::before { content: "## "; color: var(--accent); }
+
+p { margin: 0 0 1.1rem; }
+
+ul { padding-left: 1.2rem; margin: 0 0 1.1rem; }
+li { margin-bottom: 0.55rem; }
+li::marker { color: var(--accent); }
+
+.meta, .note {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--dim);
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+nav {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  margin-bottom: 3rem;
+}
+nav a { text-decoration: none; color: var(--dim); }
+nav a:hover { color: var(--accent); }
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--dim);
+}
+footer p { margin: 0 0 0.3rem; }
+
+/* 404 */
+.xid {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  background: var(--code-bg);
+  border-left: 3px solid var(--accent);
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0 0 1.5rem;
+}
