@@ -12,8 +12,6 @@
   --rule: #e3e0d8;
   --accent: #b4451f;
   --code-bg: #f1eee7;
-  --field: #1d1d1b;
-  --field-alpha: 0.09;
   --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   color-scheme: light dark;
 }
@@ -26,8 +24,6 @@
     --rule: #2b2a27;
     --accent: #ec8358;
     --code-bg: #1d1c1a;
-    --field: #e7e5df;
-    --field-alpha: 0.11;
   }
 }
 

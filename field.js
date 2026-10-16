@@ -10,7 +10,7 @@
   const DRIFT = 3;
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  let cols, rows, cellW, cellH, glyphs, accents, ink, accent, maxAlpha, timer;
+  let cols, rows, cellW, cellH, glyphs, accents, ink, accent, maxAlpha, timer, frame = 0;
 
   const hash = (i, j) => {
     let h = (Math.imul(i, 374761393) + Math.imul(j, 668265263)) | 0;
@@ -28,11 +28,15 @@
 
   const pick = () => CHARS[(Math.random() * CHARS.length) | 0];
 
+  // Pick ink from the background actually painted, so dark-mode
+  // extensions that rewrite the page colors don't hide the field.
   function readColors() {
-    const css = getComputedStyle(document.documentElement);
-    ink = css.getPropertyValue("--field").trim();
-    accent = css.getPropertyValue("--accent").trim();
-    maxAlpha = parseFloat(css.getPropertyValue("--field-alpha")) || 0.1;
+    const bg = getComputedStyle(document.body).backgroundColor.match(/[\d.]+/g) || [255, 255, 255];
+    const [r, g, b] = bg.map(Number);
+    const dark = 0.2126 * r + 0.7152 * g + 0.0722 * b < 128;
+    ink = dark ? "#e7e5df" : "#1d1d1b";
+    accent = dark ? "#ec8358" : "#b4451f";
+    maxAlpha = dark ? 0.11 : 0.09;
   }
 
   function resize() {
@@ -76,6 +80,7 @@
       for (let k = 0; k < glyphs.length * 0.01; k++) {
         glyphs[(Math.random() * glyphs.length) | 0] = pick();
       }
+      if (++frame % (FPS * 2) === 0) readColors();
       draw((performance.now() / 1000) * DRIFT);
     }
     timer = setTimeout(tick, 1000 / FPS);
