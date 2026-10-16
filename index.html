@@ -4,224 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeremy Blankenship</title>
-    <meta name="description" content="I build auditable AI infrastructure: control planes, audit gates, and Blackwell kernel debugging for GPU work.">
+    <meta name="description" content="Senior Principal Engineer at Dell Technologies. Rack-scale AI infrastructure, homelab systems, and open-source LLM tooling.">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="container">
-        <nav>
-            <a href="/" class="active">Jeremy Blankenship</a>
-            <a href="/writing">Writing</a>
-        </nav>
+        <header class="site-header">
+            <nav aria-label="Primary">
+                <a href="/" class="active">Jeremy Blankenship</a>
+                <a href="/writing/">Writing</a>
+            </nav>
+        </header>
 
-        <!-- Hero -->
-        <div class="hero">
-            <h1>I build <span class="accent">auditable AI infrastructure</span>: control planes, audit gates, and Blackwell (sm_121) kernel debugging for GPU work.</h1>
-            <p class="bridge">I committed patches to FlashInfer and CUTLASS for NVIDIA's sm_121 — the Blackwell variant on GB10. I built an agentic research system that generates AI research artifacts and currently reports 393/393 canonical outputs passing its strict claim/evidence audit bar. The point is not that every generated result is true; the point is that the system makes the audit boundary visible. I work at the seam between datacenter GPU hardware and the software that tries to pretend hardware doesn't matter.</p>
-            <p class="location">Oklahoma City, OK</p>
-        </div>
+        <main id="main">
+            <section class="intro" aria-labelledby="intro-heading">
+                <h1 id="intro-heading">Jeremy Blankenship</h1>
+                <p class="lede">Senior Principal Engineer and XE Domain Engineer at Dell Technologies. I work on rack-scale NVIDIA AI systems in production datacenters, and on the side I run a homelab, build small business websites, and ship open-source tools around LLMs and MCP.</p>
+            </section>
 
-        <!-- Hardware & Kernel Work -->
-        <section>
-            <h2>Hardware & Kernel Work</h2>
-            <p style="color: var(--text-dim); font-size: 0.92rem; margin-bottom: 28px; max-width: 600px;">Work on NVIDIA's Grace Blackwell consumer architecture (sm_121 / DGX Spark) — LPDDR5X memory, blockscaled MMA paths, and TMA async data movement, distinct from H100/A100/H200/B200/B300 in ways that break most vendor kernels. Committed patches, documented Xid faults, and ran private lab campaigns.</p>
-
-            <div class="lab-grid">
-                <div class="lab-item">
-                    <h3>FlashInfer SM121</h3>
-                    <span class="tagline">Kernel debugging and patching for Blackwell</span>
-                    <p>Debugged and patched FlashInfer for sm_121. When primary kernel paths produced Xid 13 and Xid 43 GPU faults, worked through the CuTe-DSL fallback path as a secondary route. Documented illegal instruction errors, misaligned addresses, and warp exceptions found in NVIDIA's kernel code running on sm_121. Built a systematic debugging campaign with variant matrices and regression runbooks for a platform whose architecture (LPDDR5X, blockscaled MMA, TMA) differs from H100/A100/H200/B200/B300.</p>
+            <section aria-labelledby="work-heading">
+                <h2 id="work-heading">What I work on</h2>
+                <div class="prose">
+                    <p>Since August 2025, most of my time goes to NVIDIA GB200 and GB300 NVL72 rack-scale platforms: troubleshooting NVSwitch switch trays, power shelves, compute trays, and capacitance shelves.</p>
+                    <p>Before that focus, I spent years on AI server infrastructure—systems like the XE9680, NVIDIA GPU clusters, InfiniBand fabrics, and datacenter bring-up at large AI customer sites (customer names stay off this site).</p>
+                    <p>Outside work I keep a Proxmox homelab, build sites for local businesses, and maintain Hermes Agent plugins and MCP servers.</p>
                 </div>
+            </section>
 
-                <div class="lab-item">
-                    <h3>CUTLASS Blockscaled TMA</h3>
-                    <span class="tagline">Patches to NVIDIA's CUTLASS for sm_121 TMA operations</span>
-                    <p>Modified NVIDIA's CUTLASS library for sm_121 blockscaled TMA operations — fixing how the Tensor Memory Accelerator loads data for the Blackwell blockscaled MMA path. Patches cover sm_100, sm_120, and sm_121 layout and builder headers.</p>
-                </div>
+            <section aria-labelledby="projects-heading">
+                <h2 id="projects-heading">Selected projects</h2>
+                <p class="section-note">Descriptions from each repository’s README or GitHub summary.</p>
 
-                <div class="lab-item">
-                    <h3>Blackwell Inference Patches</h3>
-                    <span class="tagline">vLLM, llama.cpp, and Mamba kernel work for GB10</span>
-                    <p>Extended vLLM with SM120/SM121 compute capability mapping and MXFP4 backend detection. Added MXFP4/MoE tuning and BLACKWELL-OPT compilation flags to llama.cpp. Optimized Mamba SSM kernels: d_state reduction from 128→64 (27–34% faster on LPDDR5X), custom Triton kernels with explicit backward passes, and nsight profiling harnesses with A/B testing across BF16/TF32/torch.compile modes.</p>
-                </div>
+                <ul class="project-list">
+                    <li class="card">
+                        <h3><a href="https://github.com/aliasocracy/hermes-tool-slimmer">hermes-tool-slimmer</a></h3>
+                        <p>Hermes Agent plugin that trims tool schemas sent with each model request—keyword-ranked selection, optional experimental modes, and a dashboard for savings. Fails open to the full tool list when selection errors.</p>
+                    </li>
+                    <li class="card">
+                        <h3><a href="https://github.com/aliasocracy/CouncilRouter">CouncilRouter</a></h3>
+                        <p>Multi-model AI consensus proxy with deliberation rounds, code-aware synthesis, and a Devil’s Advocate module that challenges consensus.</p>
+                    </li>
+                    <li class="card">
+                        <h3><a href="https://github.com/aliasocracy/hermes-memory-mcp">hermes-memory-mcp</a></h3>
+                        <p>Stdio MCP server exposing Hermes Agent persistent memory files and local session search to MCP clients (Hermes, Cursor, Claude, and others).</p>
+                    </li>
+                    <li class="card">
+                        <h3><a href="https://github.com/aliasocracy/hermes-webhook-router">hermes-webhook-router</a></h3>
+                        <p>Pre-router that filters and transforms webhook payloads before they trigger Hermes Agent runs, so noisy SaaS events do not burn tokens on every delivery.</p>
+                    </li>
+                    <li class="card">
+                        <h3><a href="https://github.com/aliasocracy/hermes-threshold">hermes-threshold</a></h3>
+                        <p>FastAPI service for proactive Hermes wake cycles: deterministic decisions to sleep, reflect, draft, notify, or request approval, with SQLite-backed state.</p>
+                    </li>
+                </ul>
+            </section>
 
-                <div class="lab-item">
-                    <h3>Project Squeegee</h3>
-                    <span class="tagline">FP4 hotpatches and diffusion LM research</span>
-                    <p>Seven FlashInfer SM121 FP4 hotpatches — workarounds for broken vendor code causing Xid 13 errors on GB10. Diffusion LM research pipeline with curriculum generation, education quality scoring, and reasoning parsers. Tracked and documented GPU crashes from vendor kernel code.</p>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Work -->
-        <section>
-            <h2>Work</h2>
-
-            <div class="project">
-                <h3>Enoch</h3>
-                <span class="tagline">Agentic research control plane</span>
-                <p>Enoch treats autonomous AI failure modes as infrastructure problems: stale queues, hidden worker state, orphaned processes, GPU contention, scattered evidence, and reports that overstate results. It manages queue state, gates dispatch, supervises local AI runs, preserves evidence, and packages AI-generated research artifacts with provenance metadata and claim ledgers.</p>
-
-                <div class="insight">The goal is not to make autonomous AI look smarter. The goal is to make its work inspectable: what ran, when it ran, what evidence was captured, what claims were made, and where uncertainty remains.</div>
-
-                <div class="component-grid">
-                    <div class="component-row">
-                        <div class="component-name">Control Plane API</div>
-                        <div class="component-desc">Queue state, dispatch decisions, project state, pause and maintenance controls</div>
+            <section aria-labelledby="experience-heading">
+                <h2 id="experience-heading">Experience &amp; recognition</h2>
+                <dl class="timeline">
+                    <div>
+                        <dt>Dell Technologies</dt>
+                        <dd>
+                            <p><strong>Senior Principal Engineer, XE Domain Engineer</strong> (March 2026–present)</p>
+                            <p><strong>Principal Engineer</strong> (July 2024–March 2026)</p>
+                            <p>With Dell since about 2009—roughly seventeen years in enterprise server and AI infrastructure roles.</p>
+                        </dd>
                     </div>
-                    <div class="component-row">
-                        <div class="component-name">Worker Gate</div>
-                        <div class="component-desc">Confirms a run is complete via process-tree tracking and CPU/GPU quiet-window telemetry</div>
-                    </div>
-                    <div class="component-row">
-                        <div class="component-name">Worker Preflight</div>
-                        <div class="component-desc">Authenticated health checks before dispatch — fails early rather than silently</div>
-                    </div>
-                    <div class="component-row">
-                        <div class="component-name">Single-Lane Safety</div>
-                        <div class="component-desc">Prevents overlapping GPU work on constrained hardware; control plane holds the lock</div>
-                    </div>
-                    <div class="component-row">
-                        <div class="component-name">Evidence Sync</div>
-                        <div class="component-desc">Copies run notes, metrics, evidence bundles, and claim ledgers before artifact generation</div>
-                    </div>
-                    <div class="component-row">
-                        <div class="component-name">Artifact Writer</div>
-                        <div class="component-desc">Generates publication-style reports from evidence, preserving uncertainty and provenance</div>
-                    </div>
-                    <div class="component-row">
-                        <div class="component-name">Packaging/provenance Gates</div>
-                        <div class="component-desc">Separates formatting/provenance checks from the stricter claim/evidence audit before corpus entry</div>
-                    </div>
-                </div>
+                </dl>
+                <ul class="plain-list">
+                    <li>Dell President’s Award / Game Changer (December 2024)</li>
+                    <li>Game Changer recognition (October 2025)</li>
+                    <li>CCNA and CCDA certifications</li>
+                    <li>Computer Science coursework at Pennsylvania College of Technology (2007–2009)</li>
+                </ul>
+            </section>
 
-                <p>My role is the infrastructure: the control plane, dispatch gates, telemetry, artifact packaging, provenance model, quality-floor framing, and release process. The Enoch corpus indexes 393 canonical AI-generated research artifacts after duplicate-slug cleanup and later imports; the strict claim/evidence audit now passes all 393. That audit status is headlined on the project's front page — the audit gate is the product, not the papers. Separate promising-signal records preserve 6,381 bounded useful or scale-blocked leads without counting them as validated papers. Weak/local-only records are useful for diagnosis, not public persuasion. I do not claim personal authorship of the generated papers.</p>
+            <section aria-labelledby="writing-heading">
+                <h2 id="writing-heading">Writing</h2>
+                <p class="prose">Notes on agent reliability, production discipline, and infrastructure—<a href="/writing/">see all posts</a>.</p>
+            </section>
 
-                <div class="project-links">
-                    <a href="https://github.com/alias8818/enoch-agentic-research-system">System repository</a>
-                    <a href="https://github.com/alias8818/enoch-ai-research-corpus">Corpus</a>
-                    <a href="https://github.com/alias8818/enoch-promising-signals">Promising signals</a>
-                </div>
-            </div>
-
-            <div class="project">
-                <h3>CouncilRouter</h3>
-                <span class="tagline">Multi-model AI deliberation proxy</span>
-                <p>CouncilRouter explores whether multi-model critique can reduce blind spots in complex reasoning, code review, and architecture decisions. It routes requests to 300+ externally-hosted models via OpenRouter with multi-round peer review, code-aware synthesis, and a Devil's Advocate module that challenges consensus with critical analysis.</p>
-
-                <div class="insight">It treats consensus as a signal, not proof.</div>
-
-                <div class="component-grid">
-                    <div class="component-row">
-                        <div class="component-name">Deliberation Engine</div>
-                        <div class="component-desc">Multi-round peer review across models with configurable rounds and graceful degradation</div>
-                    </div>
-                    <div class="component-row">
-                        <div class="component-name">Code-Aware Synthesis</div>
-                        <div class="component-desc">Detects code, compares functional equivalence, validates syntax, security, and error handling</div>
-                    </div>
-                    <div class="component-row">
-                        <div class="component-name">Devil's Advocate</div>
-                        <div class="component-desc">Challenges consensus with critical analysis at configurable intensity</div>
-                    </div>
-                    <div class="component-row">
-                        <div class="component-name">Production Layer</div>
-                        <div class="component-desc">PostgreSQL + Redis, REST API, JWT/API key auth, rate limiting, idempotency, SSE streaming</div>
-                    </div>
-                </div>
-
-                <div class="project-links">
-                    <a href="https://github.com/alias8818/CouncilRouter">Repository</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Architecture Research -->
-        <section>
-            <h2>Architecture Research</h2>
-
-            <div class="lab-grid">
-                <div class="lab-item">
-                    <h3>CoSpec</h3>
-                    <span class="tagline">Spectral initialization from token co-occurrence</span>
-                    <p>Research on whether variance-matched spectral initialization from token co-occurrence matrices improves early training dynamics for GPT-2-style models. Completed study with controlled experiments across five conditions (baseline, e_only, h_only, e_plus_h, spectrum_random). Result: the e_only condition — initializing only the embedding matrix from co-occurrence spectra — beat baseline in both screening and confirmation runs. Rust backend for co-occurrence accumulation performance.</p>
-                </div>
-
-                <div class="lab-item">
-                    <h3>Opus</h3>
-                    <span class="tagline">Hybrid Mamba-2 SSM + differential attention</span>
-                    <p>Hybrid architecture combining Mamba-2 SSM with differential shared attention (Attn₁ - λ·Attn₂) and LoRA depth adapters. 5:1 SSM-to-attention ratio. Benchmarked on GB10 with throughput measurements. FP8 training recipe adapted from DeepSeek-V3. Configurable model sizes from 125M to 7B.</p>
-                </div>
-
-                <div class="lab-item">
-                    <h3>Project Lattice</h3>
-                    <span class="tagline">PaRT architecture and training infrastructure</span>
-                    <p>PaRT (Patch-and-Refine Transformer): patch-based downsampling with cross-attention refinement, designed for memory-bandwidth-constrained hardware. Built LatticeDash, a real-time training dashboard with WebSocket streaming, convergence tracking, and curriculum learning. NVFP4 MLP precision experiments.</p>
-                </div>
-
-                <div class="lab-item">
-                    <h3>TurboQuant</h3>
-                    <span class="tagline">Quantization research reproduction</span>
-                    <p>Local reproduction and evaluation of Google's TurboQuant paper. Implemented MSE codec (random rotation + Lloyd-Max codebook), product codec (MSE + QJL residual), split codec (mixed-precision channel split), and grouped passkey scoring with KV-cache proxy evaluation.</p>
-                </div>
-                <div class="lab-item">
-                    <h3>ArborealMoE</h3>
-                    <span class="tagline">Recursive MoE with per-token halting — and why it failed</span>
-                    <p>Experimental PyTorch architecture with a recursive mixture-of-experts tree, per-token adaptive halting, and path-conditioned LoRA specialization. At tiny scale, routing worked mechanically but specialization did not meaningfully emerge — the model converged toward shallow, uniform routing. Documented routing collapse, expert capacity constraints, and scale recommendations for future runs. Published for the negative result, not the architecture.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Engineering Focus -->
-        <section>
-            <h2>Engineering Focus</h2>
-            <div class="focus-grid">
-                <div class="focus-item">
-                    <div class="focus-label">AI Infrastructure Control Planes</div>
-                    <div class="focus-desc">Dispatch safety, GPU worker state, telemetry, evidence sync, artifact provenance</div>
-                </div>
-                <div class="focus-item">
-                    <div class="focus-label">Enterprise AI Operations</div>
-                    <div class="focus-desc">Large-scale datacenter deployment, Day 2 operations, triage, failure analysis, process development</div>
-                </div>
-                <div class="focus-item">
-                    <div class="focus-label">NVIDIA Accelerated Systems</div>
-                    <div class="focus-desc">Grace Blackwell (sm_121) kernel debugging, CUTLASS TMA patches, FlashInfer CuTe-DSL fixes, MXFP4/MoE inference, TensorRT-LLM benchmarking, constrained local GPU operations</div>
-                </div>
-                <div class="focus-item">
-                    <div class="focus-label">Local-First Infrastructure</div>
-                    <div class="focus-desc">Proxmox, OPNsense, ZFS, monitoring, alerting, backup validation, recovery automation, security hardening</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Operational Background -->
-        <section>
-            <h2>Operational Background</h2>
-            <ul class="experience-list">
-                <li>16 years at a Fortune 50 technology company in enterprise server and AI infrastructure, currently Senior Principal Engineer</li>
-                <li>Large-scale AI datacenter deployment and Day 2 operations support at scales of thousands of racks</li>
-                <li>Hardware and software triage under pressure: GPU systems, server platforms, deployment blockers, process gaps, and recovery paths</li>
-                <li>Process development, personnel training, escalation support, and operational runbook improvement</li>
-                <li>Production-style local infrastructure: Proxmox, OPNsense, ZFS, monitoring, alerting, backup validation, recovery automation, security hardening</li>
-                <li>NVIDIA AI infrastructure: Grace Blackwell (sm_121) kernel debugging and patching, CUTLASS TMA fixes, FlashInfer CuTe-DSL fixes, MXFP4/MoE inference, quantization validation, TensorRT-LLM benchmarking, constrained GPU worker orchestration</li>
-            </ul>
-        </section>
-
-        <!-- Contact -->
-        <section>
-            <h2>Contact</h2>
-            <div class="contact-links">
-                <a href="https://github.com/alias8818">GitHub</a>
-                <a href="mailto:jeremy@jeremyblankenship.dev">Email</a>
-            </div>
-            <p class="disclaimer">Personal site and independent projects. Views and work are my own.</p>
-        </section>
+            <section aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Contact</h2>
+                <p class="prose"><a href="https://github.com/alias8818">GitHub</a></p>
+                <p class="fine-print">Personal site. Views and side projects are my own, not my employer’s.</p>
+            </section>
+        </main>
 
         <footer>
-            Jeremy Blankenship
+            <p>Jeremy Blankenship</p>
         </footer>
     </div>
 </body>

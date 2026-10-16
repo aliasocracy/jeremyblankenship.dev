@@ -4,44 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writing — Jeremy Blankenship</title>
-    <meta name="description" content="Technical writing on AI infrastructure, agent reliability, and production systems by Jeremy Blankenship.">
+    <meta name="description" content="Technical writing on agent reliability and production infrastructure by Jeremy Blankenship.">
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="container">
-        <nav>
-            <a href="/">Jeremy Blankenship</a>
-            <a href="/writing" class="active">Writing</a>
-        </nav>
+        <header class="site-header">
+            <nav aria-label="Primary">
+                <a href="/">Jeremy Blankenship</a>
+                <a href="/writing/" class="active">Writing</a>
+            </nav>
+        </header>
 
-        <div class="page-header">
-            <h1>Writing</h1>
-            <p class="subtitle">On AI infrastructure, agent reliability, and what it takes to make autonomous systems trustworthy enough to ship.</p>
-        </div>
-
-        <div class="article-list">
-            <a class="article-entry" href="/writing/ai-research-failure-rate">
-                <h2>I Put My AI Research System's Failure Rate on Its Own Front Page</h2>
-                <div class="meta">May 2026</div>
-                <p class="excerpt">I built an AI research system that now publishes 393 canonical artifacts after duplicate cleanup and later corpus imports. Its strict audit gate now passes the full corpus, and that gate remains visible on the front page instead of being hidden behind a green checkmark. Here is why every AI research release should show its evidence contract.</p>
-            </a>
-
-            <a class="article-entry" href="/writing/agent-run-not-done">
-                <h2>An Agent Run Is Not Done When the Model Stops Talking</h2>
-                <div class="meta">May 2026</div>
-                <p class="excerpt">When an AI agent finishes a task, you need to know more than "it stopped generating." You need to know whether it finished cleanly, whether the output matches the objective, whether there's evidence for the claims, and whether anyone can reproduce what happened. Most agent systems answer none of these questions.</p>
-            </a>
-
-            <div class="article-stub">
-                <h2>Debugging Xid 13 and Xid 43 on NVIDIA sm_121 with No Vendor Support</h2>
-                <div class="meta">In progress</div>
-                <p class="excerpt">Notes from a private lab campaign patching FlashInfer, CUTLASS blockscaled TMA, and vLLM for NVIDIA's Blackwell consumer variant. Covers the CuTe-DSL fallback path, illegal-instruction traces, misaligned-address patterns, and why sm_121 breaks most vendor kernels in ways H100 and B200 do not.</p>
-
+        <main id="main">
+            <div class="page-header">
+                <h1>Writing</h1>
+                <p class="subtitle">Notes on when an agent run is really finished, evidence, and production-style discipline around autonomous systems.</p>
             </div>
-        </div>
+
+            <div class="article-list">
+                <a class="article-entry" href="/writing/agent-run-not-done.html">
+                    <h2>An Agent Run Is Not Done When the Model Stops Talking</h2>
+                    <div class="meta">May 2026</div>
+                    <p class="excerpt">The gap between model silence and task completion is where most real-world agent failures live—and what infrastructure to put around runs so you can trust the output.</p>
+                </a>
+            </div>
+        </main>
 
         <footer>
-            Jeremy Blankenship
+            <p>Jeremy Blankenship</p>
         </footer>
     </div>
 </body>
